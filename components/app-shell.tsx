@@ -7,7 +7,7 @@ import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
 
 const navItems = [
-    { href: '/', label: 'Dashboard', icon: LayoutDashboard },
+    { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
     { href: '/create', label: 'Create Shortlink', icon: Plus },
     { href: '/links', label: 'Links', icon: LinkIcon },
     { href: '/settings', label: 'Settings', icon: Settings }
@@ -21,7 +21,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
 
     useEffect(() => setMounted(true), []);
 
-    const isPublicRedirectRoute = pathname && pathname !== '/' && !pathname.startsWith('/dashboard') && !pathname.startsWith('/links') && !pathname.startsWith('/create') && !pathname.startsWith('/settings') && !pathname.startsWith('/api') && !pathname.startsWith('/_next');
+    const isPublicRedirectRoute = pathname && !pathname.startsWith('/dashboard') && !pathname.startsWith('/links') && !pathname.startsWith('/create') && !pathname.startsWith('/settings') && !pathname.startsWith('/login') && !pathname.startsWith('/api') && !pathname.startsWith('/_next');
 
     return (
         <div className="min-h-screen bg-background text-text dark:bg-darkbg dark:text-darktext">
@@ -41,8 +41,8 @@ export function AppShell({ children }: { children: React.ReactNode }) {
                                         key={href}
                                         href={href}
                                         className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-sm font-medium ${active
-                                                ? 'border-black bg-black text-white dark:border-white dark:bg-white dark:text-black'
-                                                : 'border-transparent bg-transparent text-muted hover:border-black/10 hover:bg-black/5 dark:hover:border-white/10 dark:hover:bg-white/5'
+                                            ? 'border-black bg-black text-white dark:border-white dark:bg-white dark:text-black'
+                                            : 'border-transparent bg-transparent text-muted hover:border-black/10 hover:bg-black/5 dark:hover:border-white/10 dark:hover:bg-white/5'
                                             }`}
                                     >
                                         <Icon size={16} />
