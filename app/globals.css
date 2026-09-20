@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    color-scheme: light;
+}
+
+.dark {
+    color-scheme: dark;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    @apply bg-background text-text antialiased transition-colors duration-200;
+}
+
+.dark body {
+    @apply bg-darkbg text-darktext;
+}
+
+* {
+    @apply border-border;
+}
+
+.card-glass {
+    @apply border border-black/10 bg-white/70 backdrop-blur-sm shadow-soft dark:border-white/10 dark:bg-white/5;
+}
+
+button,
+input,
+textarea,
+select {
+    @apply transition-all duration-200;
+}
+
+input,
+textarea,
+select {
+    @apply rounded-xl border border-black/10 bg-white px-3 py-2.5 text-sm outline-none ring-0 placeholder:text-muted focus:border-primary dark:border-white/10 dark:bg-darksurface dark:text-darktext;
+}
+
+label {
+    @apply mb-2 block text-sm font-medium;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(124, 185, 255, 0.7);
+    border-radius: 9999px;
+}
